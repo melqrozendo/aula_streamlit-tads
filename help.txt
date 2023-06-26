@@ -1,0 +1,2 @@
+#Obs: para rodar na máquina remota:
+streamlit run /workspaces/aula_streamlit-tads/main.py --server.enableCORS false --server.enableXsrfProtection false
