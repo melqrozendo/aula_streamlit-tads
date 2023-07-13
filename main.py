@@ -16,8 +16,14 @@ data = yf.download(ticker_symbol, start="2020-01-01", end="2023-06-26")
 st.subheader("Stock History")
 st.dataframe(data)
 
-# Plot the closing price using Plotly
+# Plot the closing price using Plotly(preço das açoes)
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=data.index, y=data['Close'], name='Closing Price'))
 fig.update_layout(title=f"{ticker_symbol} Stock Price", xaxis_title="Date", yaxis_title="Price")
 st.plotly_chart(fig)
+
+# Plot the volume using Plotly(volume de negociaçoes)
+fig_volume = go.Figure()
+fig_volume.add_trace(go.Scatter(x=data.index, y=data['Volume'], name='Volume'))
+fig_volume.update_layout(title=f"{ticker_symbol} Stock Volume", xaxis_title="Date", yaxis_title="Volume")
+st.plotly_chart(fig_volume)
